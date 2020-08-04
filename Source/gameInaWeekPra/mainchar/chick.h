@@ -25,6 +25,18 @@ public:
 	UPROPERTY()
 	int animState;
 
+	UPROPERTY(BlueprintReadOnly, Category = "kusavar")
+	float doubleJumpPower = 500;
+	
+	UPROPERTY(BlueprintReadOnly, Category = "kusavar")
+	float doubleJumpPowerItr = 500;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "par", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* partBox;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "pooo", meta = (AllowPrivateAccess = "true"))
+	UParticleSystem* poo;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -35,5 +47,9 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	void MoveForword();
+
+	void jump();
 
 };

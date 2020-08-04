@@ -14,10 +14,10 @@ class GAMEINAWEEKPRA_API UchickAnim : public UAnimInstance
 {
 	GENERATED_BODY()
 
-	UchickAnim();
 
 
 public :
+	UPROPERTY(BlueprintReadOnly, Category = "kusavar")
 	int animState = 0;
 	
 

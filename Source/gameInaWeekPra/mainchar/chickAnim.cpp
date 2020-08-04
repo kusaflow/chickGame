@@ -10,6 +10,10 @@ void UchickAnim :: update() {
 	player = Cast<Achick>(TryGetPawnOwner());
 
 	if (player) {
-		player->animState = animState;
+		animState = player->animState;
+
+		if (animState == 2) {
+			player->animState = 0;
+		}
 	}
 }
