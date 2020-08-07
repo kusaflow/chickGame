@@ -22,6 +22,15 @@ public:
 	UPROPERTY(EditDefaultsOnly, category = "obstacle")
 	TSubclassOf<class AActor> ball;
 
+	UPROPERTY(EditDefaultsOnly, category = "obstacle")
+	TSubclassOf<class AActor> spinWheel;
+
+	UPROPERTY(EditDefaultsOnly, category = "pooPowerUp")
+	TSubclassOf<class AActor> pooPower;
+
+	UPROPERTY(EditDefaultsOnly, category = "pooPowerUp")
+	TSubclassOf<class AActor> pooDanger;
+
 	TQueue<TArray<AActor*>> LB_array;
 
 	UPROPERTY(BlueprintReadOnly, Category = "kusavar")

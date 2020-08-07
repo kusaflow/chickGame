@@ -53,6 +53,13 @@ void Achick::Tick(float DeltaTime)
 		}
 	}
 
+	if (doubleJumpPower <= 0) {
+		doubleJumpPower = 0;
+	}
+	if (doubleJumpPower >= 500) {
+		doubleJumpPower = 500;
+	}
+
 	UkusaGameInstance* gameInst = Cast<UkusaGameInstance>(GetGameInstance());
 	gameInst->playerXpos = GetRootComponent()->GetComponentLocation().X;
 
@@ -63,6 +70,10 @@ void Achick::Tick(float DeltaTime)
 
 	if (doubleJumpPower < doubleJumpPowerItr) {
 		doubleJumpPowerItr -= 100 * DeltaTime;
+	}
+
+	if (RootComponent->GetComponentLocation().Z <= -400) {
+		UGameplayStatics::OpenLevel(GetWorld(), "gameover");
 	}
 }
 

@@ -59,7 +59,7 @@ void AlevelManager::CreateLevelBlock() {
 	
 	UWorld* world = GetWorld();
 
-	int wToSelect =6;
+	int wToSelect =8;
 
 	if (!haspref) {
 		wToSelect = FMath::FRandRange(1,8);
@@ -71,14 +71,34 @@ void AlevelManager::CreateLevelBlock() {
 	if (start)
 		wToSelect = 1;
 
-	float ysize = 5;
+	float ysize = 10;
 
 	int obsToDraw = 1;
 	
 	if (start)
 		obsToDraw = 0;
 
+	
+
+
 	if (world && walkPath && ball){
+
+
+		AActor* floor= world->SpawnActor<AActor>(walkPath, FVector(xpos + 1000, 0, -1000), FRotator(0), spawnPara);
+		floor->SetActorScale3D(FVector(10, ysize, 1));
+		blocks.Push(floor);
+
+		//poo pwer ups
+		if (((int)(FMath::FRandRange(1, 100))) % 2 == 0 && pooPower) {
+			AActor* poo = world->SpawnActor<AActor>(pooPower, FVector(xpos + FMath::FRandRange(20, 1950), 0, 500), FRotator(0), spawnPara);
+			blocks.Push(poo);
+		}
+
+		if (((int)(FMath::FRandRange(1, 100))) % 7 == 0 && pooDanger) {
+			AActor* poo = world->SpawnActor<AActor>(pooDanger, FVector(xpos + FMath::FRandRange(20, 1950), 0, 500), FRotator(0), spawnPara);
+			blocks.Push(poo);
+		}
+
 		if (wToSelect == 1) {
 			for (int i = 0; i < 10; i++) {
 				AActor* sp = world->SpawnActor<AActor>(walkPath, FVector(xpos + 100, 0, 0), FRotator(0), spawnPara);
@@ -93,8 +113,6 @@ void AlevelManager::CreateLevelBlock() {
 
 				xpos += 200;
 			}	
-			wToSelect = 3;
-			haspref = true;
 		}
 		else if (wToSelect == 2) {
 			int zsz = 1;
@@ -150,7 +168,7 @@ void AlevelManager::CreateLevelBlock() {
 				sp->SetActorScale3D(FVector(0.5f, ysize, 1));
 				blocks.Push(sp);
 
-				if (((int)(FMath::FRandRange(1, 100))) % 25 == 0 && obsToDraw == 1) {
+				if (((int)(FMath::FRandRange(1, 100))) % 25 == 0 && obsToDraw == 1 && i < 15) {
 					AActor* ob = world->SpawnActor<AActor>(ball, FVector(xpos + 50, 0, zpos+60), FRotator(0), spawnPara);
 					blocks.Push(ob);
 					obsToDraw = 0;
@@ -172,7 +190,7 @@ void AlevelManager::CreateLevelBlock() {
 				AActor* sp = world->SpawnActor<AActor>(walkPath, FVector(xpos + 50, 0, zpos), FRotator(0), spawnPara);
 				sp->SetActorScale3D(FVector(0.5f, ysize, 1));
 				blocks.Push(sp);
-				if (((int)(FMath::FRandRange(1, 100))) % 25 == 0 && obsToDraw == 1) {
+				if (((int)(FMath::FRandRange(1, 100))) % 25 == 0 && obsToDraw == 1 && i<15) {
 					AActor* ob = world->SpawnActor<AActor>(ball, FVector(xpos + 50, 0, zpos + 40), FRotator(0), spawnPara);
 					blocks.Push(ob);
 					obsToDraw = 0;

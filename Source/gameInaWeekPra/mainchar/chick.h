@@ -25,7 +25,7 @@ public:
 	UPROPERTY()
 	int animState;
 
-	UPROPERTY(BlueprintReadOnly, Category = "kusavar")
+	UPROPERTY(BlueprintReadWrite, Category = "kusavar")
 	float doubleJumpPower = 500;
 	
 	UPROPERTY(BlueprintReadOnly, Category = "kusavar")
