@@ -15,7 +15,7 @@ public:
 	// Sets default values for this actor's properties
 	Ablockcpp();
 
-	UPROPERTY(EditAnywhere, Category = "mesh")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "mesh")
 	class UStaticMeshComponent* block;
 
 	UPROPERTY(EditAnywhere, Category = "material")

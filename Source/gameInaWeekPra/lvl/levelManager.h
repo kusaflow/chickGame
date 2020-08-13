@@ -19,6 +19,18 @@ public:
 	UPROPERTY(EditDefaultsOnly, category = "WalkPAth")
 	TSubclassOf<class AActor> walkPath;
 
+	UPROPERTY(EditDefaultsOnly, category = "WalkPAth")
+	TSubclassOf<class AActor> noGravity;
+
+	UPROPERTY(EditDefaultsOnly, category = "WalkPAth")
+	TSubclassOf<class AActor> goDown;
+
+	UPROPERTY(EditDefaultsOnly, category = "WalkPAth")
+	TSubclassOf<class AActor> goUp;
+
+
+	///block End
+
 	UPROPERTY(EditDefaultsOnly, category = "obstacle")
 	TSubclassOf<class AActor> ball;
 
