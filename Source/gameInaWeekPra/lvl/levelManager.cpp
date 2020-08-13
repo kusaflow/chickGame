@@ -17,7 +17,6 @@ void AlevelManager::BeginPlay()
 {
 	Super::BeginPlay();
 	initBlocks();
-
 	
 }
 
@@ -62,7 +61,7 @@ void AlevelManager::CreateLevelBlock() {
 	int wToSelect =8;
 
 	if (!haspref) {
-		wToSelect = FMath::FRandRange(1,8);
+		//wToSelect = FMath::FRandRange(1,8);
 	}
 	else {
 		haspref = false;
@@ -71,7 +70,7 @@ void AlevelManager::CreateLevelBlock() {
 	if (start)
 		wToSelect = 1;
 
-	float ysize = 10;
+	float ysize = 1;
 
 	int obsToDraw = 1;
 	
@@ -210,6 +209,35 @@ void AlevelManager::CreateLevelBlock() {
 				}
 				xpos += 200;
 			}
+		}
+
+		else if (wToSelect == 8) {
+			int zpos = -10;
+			for (int i = 0; i < 20; i++) {
+				if (i < 10) {
+					zpos -= 20;
+				}
+				else {
+					zpos += 20;
+				}
+				if (((int)(FMath::FRandRange(1, 100))) % 4 == 0) {
+
+					xpos += 100;
+					continue;
+				}
+			
+				AActor* sp = world->SpawnActor<AActor>(walkPath, FVector(xpos + 50, 0, zpos), FRotator(0), spawnPara);
+				sp->SetActorScale3D(FVector(0.5f, ysize, 1));
+				blocks.Push(sp);
+				if (((int)(FMath::FRandRange(1, 100))) % 25 == 0 && obsToDraw == 1 && i < 15) {
+					AActor* ob = world->SpawnActor<AActor>(ball, FVector(xpos + 50, 0, zpos + 40), FRotator(0), spawnPara);
+					blocks.Push(ob);
+					obsToDraw = 0;
+				}
+
+				xpos += 100;
+			}
+
 		}
 
 
