@@ -30,6 +30,19 @@ public:
 
 
 	///block End
+	
+	//show Pieces
+	UPROPERTY(EditDefaultsOnly, category = "ShowP")
+	TSubclassOf<class AActor> sp1;
+
+	UPROPERTY(EditDefaultsOnly, category = "ShowP")
+	TSubclassOf<class AActor> sp2;
+
+	UPROPERTY(EditDefaultsOnly, category = "ShowP")
+	TSubclassOf<class AActor> sp3;
+
+
+
 
 	UPROPERTY(EditDefaultsOnly, category = "obstacle")
 	TSubclassOf<class AActor> ball;

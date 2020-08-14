@@ -61,7 +61,7 @@ void AlevelManager::CreateLevelBlock() {
 	int wToSelect =11;
 
 	if (!haspref) {
-		//wToSelect = FMath::FRandRange(1,12);
+		wToSelect = FMath::FRandRange(1,12);
 	}
 	else {
 		haspref = false;
@@ -81,6 +81,101 @@ void AlevelManager::CreateLevelBlock() {
 
 
 	if (world && walkPath && ball){
+
+		if (sp1 && sp2 && sp3) {
+			TSubclassOf<class AActor> spTD;
+			int spR = (int)FMath::FRandRange(1,4);
+			switch (spR) {
+			case 1 :
+				spTD = sp1;
+				break;
+			case 2:
+				spTD = sp2;
+				break;
+			case 3:
+				spTD = sp3;
+				break;
+			default:
+				spTD = sp1;
+				break;
+			}
+
+			float spS = FMath::FRandRange(0.5f, 3);
+
+			AActor* s1 = world->SpawnActor<AActor>(spTD, FVector(xpos + FMath::FRandRange(10,500), FMath::FRandRange(-500, -2000), FMath::FRandRange(-100, 450)), FRotator(0), spawnPara);
+			s1->SetActorScale3D(FVector(spS));
+			blocks.Push(s1);
+
+			spR = (int)FMath::FRandRange(1, 4);
+			switch (spR) {
+			case 1:
+				spTD = sp1;
+				break;
+			case 2:
+				spTD = sp2;
+				break;
+			case 3:
+				spTD = sp3;
+				break;
+			default:
+				spTD = sp1;
+				break;
+			}
+
+			spS = FMath::FRandRange(0.5f, 3);
+
+			AActor* s2 = world->SpawnActor<AActor>(spTD, FVector(xpos + 500 + FMath::FRandRange(10, 500), FMath::FRandRange(-500, -2000), FMath::FRandRange(-100, 450)), FRotator(0), spawnPara);
+			s2->SetActorScale3D(FVector(spS));
+			blocks.Push(s2);
+
+			spR = (int)FMath::FRandRange(1, 4);
+			switch (spR) {
+			case 1:
+				spTD = sp1;
+				break;
+			case 2:
+				spTD = sp2;
+				break;
+			case 3:
+				spTD = sp3;
+				break;
+			default:
+				spTD = sp1;
+				break;
+			}
+
+			spS = FMath::FRandRange(0.5f, 3);
+
+			AActor* s3 = world->SpawnActor<AActor>(spTD, FVector(xpos + 1000 + FMath::FRandRange(10, 500), FMath::FRandRange(-500, -2000), FMath::FRandRange(-100, 450)), FRotator(0), spawnPara);
+			s3->SetActorScale3D(FVector(spS));
+			blocks.Push(s3);
+
+			spR = (int)FMath::FRandRange(1, 4);
+			switch (spR) {
+			case 1:
+				spTD = sp1;
+				break;
+			case 2:
+				spTD = sp2;
+				break;
+			case 3:
+				spTD = sp3;
+				break;
+			default:
+				spTD = sp1;
+				break;
+			}
+
+			spS = FMath::FRandRange(0.5f, 3);
+
+			AActor* s4= world->SpawnActor<AActor>(spTD, FVector(xpos + 1500 + FMath::FRandRange(10, 500), FMath::FRandRange(-500, -2000), FMath::FRandRange(-100, 450)), FRotator(0), spawnPara);
+			s4->SetActorScale3D(FVector(spS));
+			blocks.Push(s4);
+
+
+
+
+		}
 
 
 		AActor* floor= world->SpawnActor<AActor>(walkPath, FVector(xpos + 1000, 0, -1000), FRotator(0), spawnPara);

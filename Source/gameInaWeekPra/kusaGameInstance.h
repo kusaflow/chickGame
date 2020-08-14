@@ -15,6 +15,10 @@ class GAMEINAWEEKPRA_API UkusaGameInstance : public UGameInstance
 	GENERATED_BODY()
 
 public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "kusaVar")
 	int playerXpos = 0;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "kusaVar")
+	int chickMat = 1;
 	
 };

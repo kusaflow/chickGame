@@ -64,6 +64,17 @@ void Achick::Tick(float DeltaTime)
 	gameInst->playerXpos = GetRootComponent()->GetComponentLocation().X;
 
 
+	//mat of chicken 
+	if (gameInst->chickMat == 1) {
+		GetCharacterMovement()->MaxWalkSpeed = 500;
+		GetCharacterMovement()->JumpZVelocity = 500;
+	}
+	else if (gameInst->chickMat == 2) {
+		GetCharacterMovement()->MaxWalkSpeed = 1000;
+		GetCharacterMovement()->JumpZVelocity = 800;
+	}
+
+
 	if (doubleJumpPower > doubleJumpPowerItr) {
 		doubleJumpPowerItr += 100 * DeltaTime;
 	}

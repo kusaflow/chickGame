@@ -37,6 +37,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "pooo", meta = (AllowPrivateAccess = "true"))
 	UParticleSystem* poo;
 
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
