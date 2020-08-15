@@ -182,16 +182,33 @@ void AlevelManager::CreateLevelBlock() {
 		floor->SetActorScale3D(FVector(10, ysize, 1));
 		blocks.Push(floor);
 
+		AActor* back = world->SpawnActor<AActor>(bgWall, FVector(xpos + 1000, -3000, 0), FRotator(0), spawnPara);
+		back->SetActorScale3D(FVector(10, 1, 40));
+		blocks.Push(back);
+
+
 		//poo pwer ups
 		if (((int)(FMath::FRandRange(1, 100))) % 2 == 0 && pooPower) {
 			AActor* poo = world->SpawnActor<AActor>(pooPower, FVector(xpos + FMath::FRandRange(20, 1950), 0, 500), FRotator(0), spawnPara);
 			blocks.Push(poo);
 		}
-
+		//pooDanger
 		if (((int)(FMath::FRandRange(1, 100))) % 7 == 0 && pooDanger) {
 			AActor* poo = world->SpawnActor<AActor>(pooDanger, FVector(xpos + FMath::FRandRange(20, 1950), 0, 500), FRotator(0), spawnPara);
 			blocks.Push(poo);
 		}
+
+		//whitePowerUp
+		if (((int)(FMath::FRandRange(1, 100))) % 4 == 0 && whiteChickP) {
+			AActor* whiP = world->SpawnActor<AActor>(whiteChickP, FVector(xpos + FMath::FRandRange(20, 1950), 0, 500), FRotator(0), spawnPara);
+			blocks.Push(whiP);
+		}
+		//BlackPowerUp
+		if (((int)(FMath::FRandRange(1, 100))) % 5 == 0 && BlackChickP) {
+			AActor* whiP = world->SpawnActor<AActor>(BlackChickP, FVector(xpos + FMath::FRandRange(20, 1950), 0, 500), FRotator(0), spawnPara);
+			blocks.Push(whiP);
+		}
+
 
 		if (wToSelect == 1) {
 			for (int i = 0; i < 10; i++) {

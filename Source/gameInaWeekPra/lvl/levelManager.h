@@ -28,6 +28,10 @@ public:
 	UPROPERTY(EditDefaultsOnly, category = "WalkPAth")
 	TSubclassOf<class AActor> goUp;
 
+	UPROPERTY(EditDefaultsOnly, category = "bgWAll")
+	TSubclassOf<class AActor> bgWall;
+
+
 
 	///block End
 	
@@ -41,7 +45,15 @@ public:
 	UPROPERTY(EditDefaultsOnly, category = "ShowP")
 	TSubclassOf<class AActor> sp3;
 
+	//poswerUp----------
+	//white and black
+	UPROPERTY(EditDefaultsOnly, category = "chickApp")
+	TSubclassOf<class AActor> whiteChickP;
 
+	UPROPERTY(EditDefaultsOnly, category = "chickApp")
+	TSubclassOf<class AActor> BlackChickP;
+
+	//--
 
 
 	UPROPERTY(EditDefaultsOnly, category = "obstacle")

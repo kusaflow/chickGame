@@ -20,5 +20,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "kusaVar")
 	int chickMat = 1;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "kusaVar")
+	float PowerTimer = 0;
+
 	
 };

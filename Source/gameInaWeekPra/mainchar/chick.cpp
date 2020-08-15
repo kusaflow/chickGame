@@ -38,6 +38,9 @@ void Achick::BeginPlay()
 {
 	Super::BeginPlay();
 	animState = 0;
+	UkusaGameInstance* gameInst = Cast<UkusaGameInstance>(GetGameInstance());
+	gameInst->chickMat = 1;
+	gameInst->PowerTimer = 0;
 	
 }
 
@@ -70,10 +73,23 @@ void Achick::Tick(float DeltaTime)
 		GetCharacterMovement()->JumpZVelocity = 500;
 	}
 	else if (gameInst->chickMat == 2) {
+
 		GetCharacterMovement()->MaxWalkSpeed = 1000;
 		GetCharacterMovement()->JumpZVelocity = 800;
 	}
+	else if (gameInst->chickMat == 3) {
+		doubleJumpPower = 500;
+		GetCharacterMovement()->MaxWalkSpeed = 700;
+		GetCharacterMovement()->JumpZVelocity = 600;
+	}
 
+
+	if (gameInst->PowerTimer > 0) {
+		gameInst->PowerTimer -= 60 * DeltaTime;
+	}
+	else {
+		gameInst->chickMat = 1;
+	}
 
 	if (doubleJumpPower > doubleJumpPowerItr) {
 		doubleJumpPowerItr += 100 * DeltaTime;
