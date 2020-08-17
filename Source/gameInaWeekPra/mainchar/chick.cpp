@@ -92,11 +92,11 @@ void Achick::Tick(float DeltaTime)
 	}
 
 	if (doubleJumpPower > doubleJumpPowerItr) {
-		doubleJumpPowerItr += 100 * DeltaTime;
+		doubleJumpPowerItr += 300 * DeltaTime;
 	}
 
 	if (doubleJumpPower < doubleJumpPowerItr) {
-		doubleJumpPowerItr -= 100 * DeltaTime;
+		doubleJumpPowerItr -= 300 * DeltaTime;
 	}
 
 	if (RootComponent->GetComponentLocation().Z <= -400) {
@@ -129,6 +129,10 @@ void Achick::jump() {
 		if (doubleJumpPower >= 60) {
 			LaunchCharacter(FVector(100, 0, 500), false, true);
 			doubleJumpPower -= 60;
+
+			UkusaGameInstance* gameInst = Cast<UkusaGameInstance>(GetGameInstance());
+			gameInst->pooMterAnim = true;
+
 
 			if (poo && GetWorld()) {
 				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), poo, partBox->GetComponentLocation(), FRotator(0), true);

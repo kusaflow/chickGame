@@ -24,5 +24,10 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "kusaVar")
 	float PowerTimer = 0;
 
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "kusaVar")
+	bool pooMterAnim = 0;
+
+
 	
 };
